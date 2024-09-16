@@ -1,0 +1,22 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: inxocean
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: cicd
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: cicd
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: dev
+  region: ap-south-1
+  memorySize: 128
+  timeout: 5
+
+functions:
+  logger:
+    handler: handler.logger
+    events:
+      - httpApi:
+          path: /message
+          method: get
