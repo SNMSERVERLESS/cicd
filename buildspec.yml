@@ -5,7 +5,8 @@ phases:
     commands:
       - echo Installing Serverless.....
       - npm install -g serverless
-      - serverless config credentials --provider serverless --key $SERVERLESS_ACCESS_KEY
+      # - serverless config credentials --provider serverless --key $SERVERLESS_ACCESS_KEY
+      - export SERVERLESS_ACCESS_KEY=$SERVERLESS_ACCESS_KEY
 
   pre_build:
     commands:
